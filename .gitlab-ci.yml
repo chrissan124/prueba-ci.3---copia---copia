@@ -1,0 +1,29 @@
+stages:
+    - build
+    - test
+
+build: 
+    stage: build
+    script:
+        - echo "Build"
+        - npm config set registry ${CI_NPM_REGISTRY}
+        - npm install 
+    cache:
+     paths:
+      - node_modules/
+    artifacts:
+     expire_in: 1 days
+     when: on_success
+     paths:
+      - node_modules/
+
+test:
+    stage: test
+    dependencies:
+        - build
+    script:
+        - echo "Test"
+        - npm run test
+        
+
+        
