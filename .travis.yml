@@ -1,10 +1,10 @@
 language: node_js
-node_js: 14.17.6
-    script:
-        - nvm ls-remote
-        - echo "Test"
-        - npm run test
-        
+node_js: 
+  - "14.17.6"
+scripts: 
+  - "nvm ls-remote"
+  - "echo \"Test\""
+  - "npm run test"
 
         
      
