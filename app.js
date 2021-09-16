@@ -20,6 +20,17 @@ app.get('/sum-operation', (req, res) => {
 })
 // FIN DE CÓDIGO REPLICABLE
 
+app.get('/multiplication-operation', (req, res) => {
+  const {a, b} = req.query;
+  const multiplication = operation.multiplicationOperation(a, b);
+
+  if(Number.isNaN(multiplication)){
+    res.send(`ERROR AL REALIZAR LA MULTIPLICACIÓN (DATOS INVÁLIDOS)`);
+  }else{
+    res.send(`RESULTADO DE LA MULTIPLICACIÓN: ${a} * ${b} = ${multiplication}`);
+  }
+})
+
 app.get('/', (req, res) => {
   res.send('HOLA MUNDO (SERVIDOR ACTIVO)')
 })
