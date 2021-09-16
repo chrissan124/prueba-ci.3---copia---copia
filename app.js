@@ -20,6 +20,17 @@ app.get('/sum-operation', (req, res) => {
 })
 // FIN DE CÓDIGO REPLICABLE
 
+app.get('/minus-operation', (req, res) => {
+  const {a, b} = req.query;
+  const minus = operation.minusOperation(a, b);
+
+  if(Number.isNaN(minus)){
+    res.send(`ERROR AL REALIZAR UNA RESTA (DATOS INVÁLIDOS)`);
+  }else{
+    res.send(`RESULTADO DE SUMA: ${a} - ${b} = ${minus}`);
+  }
+})
+
 app.get('/', (req, res) => {
   res.send('HOLA MUNDO (SERVIDOR ACTIVO)')
 })

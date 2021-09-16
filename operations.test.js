@@ -8,3 +8,12 @@ test('SUCCESS SUM', () => {
 test('ERROR SUM', () => {
   expect(operations.sumOperation("a", 7)).toBeNaN();
 });
+
+// TEST FOR MINUS OPERATION
+test('SUCCESS MINUS', () => {
+  expect(operations.minusOperation(10, 5)).toBe(5);
+});
+
+test('ERROR MINUS', () => {
+  expect(operations.sumOperation("a", 7)).toBeNaN();
+});
