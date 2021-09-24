@@ -3,7 +3,7 @@ const express = require('express')
 const logger = require("./middlewares/RequestLogger")
 const operation = require("./operations")
 const app = express()
-const port = process.env.SERVER_PORT
+const port = process.env.PORT
 
 app.use(logger.logRequest);
 
@@ -19,6 +19,23 @@ app.get('/sum-operation', (req, res) => {
   }
 })
 // FIN DE CÓDIGO REPLICABLE
+
+app.get('/division-operation', (req, res) => {
+  const {a, b} = req.query;
+
+  if(b == 0){
+    res.send(`ERROR AL REALIZAR LA DIVISION (DIVISION ENTRE CERO NO PERMITIDA)`);
+    return;
+  }
+
+  const division = operation.divisionOperation(a, b);
+
+  if(Number.isNaN(division)){
+    res.send(`ERROR AL REALIZAR LA DIVISION (DATOS INVÁLIDOS)`);
+  }else{
+    res.send(`RESULTADO DE DIVISION: ${a} / ${b} = ${division}`);
+  }
+})
 
 app.get('/status', (req, res) => {
   res.json({message: 'HOLA MUNDO (SERVIDOR ACTIVO)', status: 200})
