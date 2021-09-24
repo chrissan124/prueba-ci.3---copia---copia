@@ -3,7 +3,7 @@ const express = require('express')
 const logger = require("./middlewares/RequestLogger")
 const operation = require("./operations")
 const app = express()
-const port = process.env.SERVER_PORT
+const port = process.env.PORT
 
 app.use(logger.logRequest);
 
@@ -20,7 +20,7 @@ app.get('/sum-operation', (req, res) => {
 })
 // FIN DE CÓDIGO REPLICABLE
 
-app.get('/status', (req, res) => {
+app.get('/', (req, res) => {
   res.json({message: 'HOLA MUNDO (SERVIDOR ACTIVO)', status: 200})
 })
 
