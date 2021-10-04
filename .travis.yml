@@ -7,4 +7,4 @@ scripts:
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
-  app: ci-3-gitub-travis-heroku
+  app: $APP
